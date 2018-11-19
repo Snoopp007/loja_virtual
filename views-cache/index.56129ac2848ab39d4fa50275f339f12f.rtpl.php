@@ -1,45 +1,4 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?>    <body>
-   
-    <div class="header-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="user-menu">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> Minha Conta</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Lista de Desejos</a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i> Meu Carrinho</a></li>
-                            <li><a href="#"><i class="fa fa-lock"></i> Login</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="header-right">
-                        <ul class="list-unstyled list-inline">
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">moeda :</span><span class="value">BRL </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">BRL</a></li>
-                                    <li><a href="#">USD</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">linguagem :</span><span class="value">Português </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Português</a></li>
-                                    <li><a href="#">Inglês</a></li>
-                                    <li><a href="#">Espanhol</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End header area -->
-    
     <div class="site-branding-area">
         <div class="container">
             <div class="row">
@@ -73,7 +32,11 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#">Produtos</a></li>
+                        <li><a href="#">Categorias</a></li>
                         <li><a href="#">Carrinho</a></li>
+                    </ul>
+                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Login</a></li>
                     </ul>
                 </div>  
             </div>
@@ -125,38 +88,6 @@
 			</div>
 			<!-- ./Slider -->
     </div> <!-- End slider area -->
-    
-    <div class="promo-area">
-        <div class="zigzag-bottom"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-promo promo1">
-                        <i class="fa fa-refresh"></i>
-                        <p>1 ano de garantia</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-promo promo2">
-                        <i class="fa fa-truck"></i>
-                        <p>Frete grátis</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-promo promo3">
-                        <i class="fa fa-lock"></i>
-                        <p>Pagamento seguro</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-promo promo4">
-                        <i class="fa fa-gift"></i>
-                        <p>Novos produtos</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End promo area -->
     
     <div class="maincontent-area">
         <div class="zigzag-bottom"></div>
