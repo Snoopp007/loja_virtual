@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
@@ -12,15 +12,15 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
     
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="/res/site/css/bootstrap.min.css">
+    <link rel="stylesheet" href="res/site/css/bootstrap.min.css">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="/res/site/css/font-awesome.min.css">
+    <link rel="stylesheet" href="res/site/css/font-awesome.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/res/site/css/owl.carousel.css">
-    <link rel="stylesheet" href="/res/site/css/style.css">
-    <link rel="stylesheet" href="/res/site/css/responsive.css">
+    <link rel="stylesheet" href="res/site/css/owl.carousel.css">
+    <link rel="stylesheet" href="res/site/css/style.css">
+    <link rel="stylesheet" href="res/site/css/responsive.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,13 +35,13 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="/"><img src="img/logo.png"></a></h1>
+                        <h1><a href="#"><img src="img/logo.png"></a></h1>
                     </div>
                 </div>
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="/cart">Carrinho - <span class="cart-amunt">R$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="\cart">Carrinho - <span class="cart-amunt">R$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                     </div>
                 </div>
             </div>
@@ -61,10 +61,10 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/">Home</a></li>
+                        <li class="active"><a href="#">Home</a></li>
                         <li><a href="#">Produtos</a></li>
                         <li><a href="#">Categorias</a></li>
-                        <li><a href="/cart">Carrinho</a></li>
+                        <li><a href="#">Carrinho</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">Login</a></li>

@@ -1,9 +1,9 @@
-<div class="product-big-title-area">
+<?php if(!class_exists('Rain\Tpl')){exit;}?><div class="product-big-title-area">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="product-bit-title text-center">
-                    <h2>{$product.desproduct}</h2>
+                    <h2>Sony Smart TV - 2015</h2>
                 </div>
             </div>
         </div>
@@ -17,34 +17,34 @@
                 <div class="product-content-right">
                     <div class="product-breadcroumb">
                         <a href="/">Home</a>
-                        <a href="">{$product.desproduct}</a>
+                        <a href="">Sony Smart TV - 2015</a>
                     </div>
                     
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="product-images">
                                 <div class="product-main-img">
-                                    <img src="{$product.desphoto}">
+                                    <img src="/res/site/img/product-2.jpg">
                                 </div>
                             </div>
                         </div>
                         
                         <div class="col-sm-6">
                             <div class="product-inner">
-                                <h2 class="product-name">{$product.desproduct}</h2>
+                                <h2 class="product-name">Sony Smart TV - 2015</h2>
                                 <div class="product-inner-price">
-                                    <ins>R${function="formatPrice($product.vlprice)"}</ins>
+                                    <ins>$700.00</ins>
                                 </div>    
                                 
-                                <form action="/cart/{$product.idproduct}/add" class="cart">
+                                <form action="" class="cart">
                                     <div class="quantity">
-                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="qtd" min="1" step="1">
+                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
                                     </div>
-                                    <button class="add_to_cart_button" type="submit">Comprar</button>
+                                    <button class="add_to_cart_button" type="submit">Add to cart</button>
                                 </form>   
                                 
                                 <div class="product-inner-category">
-                                    <p>Categorias{loop="$categories"} <a href="/categories/{$value.idcategory}">{$value.descategory}</a>{/loop}.
+                                    <p>Categorias: <a href="#">Summer</a>.
                                 </div> 
                                 
                                 <div role="tabpanel">
