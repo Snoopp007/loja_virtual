@@ -67,7 +67,12 @@
                         <li><a href="/cart">Carrinho</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Login</a></li>
+                        <?php if( checkLogin(false) ){ ?>
+                        <li><a href="/profile"><i class="fa fa-user"></i><?php echo getUserName(); ?></a></li>
+                        <li><a href="/logout"><i class="fa fa-close"></i>Sair</a></li>
+                        <?php }else{ ?>
+                        <li><a href="/login"><i class="fa fa-lock"></i>Login</a></li>
+                        <?php } ?>
                     </ul>
                 </div>  
             </div>

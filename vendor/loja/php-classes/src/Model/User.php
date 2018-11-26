@@ -10,6 +10,9 @@ class User extends Model {
 
 	const SESSION = "User";
 	const SECRET = "Topphones_Secret";
+	const ERROR = "UserError";
+	const ERROR_REGISTER = "UserErrorRegister";
+	const SUCCESS = "UserSucesss";
 
 	protected $fields = [
 
@@ -81,23 +84,16 @@ class User extends Model {
 
 	public static function verifyLogin($inadmin = true)
 	{
-
-		if (
-			!isset($_SESSION[User::SESSION])
-			|| 
-			!$_SESSION[User::SESSION]
-			||
-			!(int)$_SESSION[User::SESSION]["iduser"] > 0
-			||
-			(bool)$_SESSION[User::SESSION]["iduser"] !== $inadmin
-		) {
-			
-			header("Location: /admin/login");
+		if (!User::checkLogin($inadmin)) {
+			if ($inadmin) {
+				header("Location: /admin/login");
+			} else {
+				header("Location: /login");
+			}
 			exit;
-
 		}
-
 	}
+
 
 	public static function listAll()
 	{
@@ -109,16 +105,14 @@ class User extends Model {
 	public function save()
 	{
 		$sql = new Sql();
-
-		$results = $sql->SELECT("CALL sp_users_save(:desperson,:deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
-				":desperson"=>$this->getdesperson(),
-				":deslogin"=>$this->getdeslogin(),
-				":despassword"=>$this->getdespassword(),
-				":desemail"=>$this->getdesemail(),
-				":nrphone"=>$this->getnrphone(),
-				":inadmin"=>$this->getinadmin()
+		$results = $sql->select("CALL sp_users_save(:desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
+			":desperson"=>utf8_decode($this->getdesperson()),
+			":deslogin"=>$this->getdeslogin(),
+			":despassword"=>User::getPasswordHash($this->getdespassword()),
+			":desemail"=>$this->getdesemail(),
+			":nrphone"=>$this->getnrphone(),
+			":inadmin"=>$this->getinadmin()
 		));
-
 		$this->setData($results[0]);
 	}
 
@@ -132,9 +126,18 @@ class User extends Model {
 		$data['desperson'] = utf8_encode($data['desperson']);
 		$this->setData($data);
 	}
-	public function update()
+	public function update($passwordHash = true)
 	{
 		$sql = new Sql();
+
+		if ($passwordHash)
+		{
+			$password = User::getPasswordHash($this->getdespassword());
+		} 
+		else 
+		{
+			$password = $this->getdespassword();
+		}
 		$results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
 			":iduser"=>$this->getiduser(),
 			":desperson"=>utf8_decode($this->getdesperson()),
@@ -260,6 +263,66 @@ class User extends Model {
 		]);
 	}
 	
+	public static function setError($msg)
+	{
+		$_SESSION[User::ERROR] = $msg;
+	}
+
+	public static function getError()
+	{
+		$msg = (isset($_SESSION[User::ERROR]) && $_SESSION[User::ERROR]) ? $_SESSION[User::ERROR] : '';
+		User::clearError();
+		return $msg;
+	}
+
+	public static function clearError()
+	{
+		$_SESSION[User::ERROR] = NULL;
+	}
+
+	public static function setSuccess($msg)
+	{
+		$_SESSION[User::SUCCESS] = $msg;
+	}
+
+	public static function getSuccess()
+	{
+		$msg = (isset($_SESSION[User::SUCCESS]) && $_SESSION[User::SUCCESS]) ? $_SESSION[User::SUCCESS] : '';
+		User::clearSuccess();
+		return $msg;
+	}
+
+	public static function clearSuccess()
+	{
+		$_SESSION[User::SUCCESS] = NULL;
+	}
+
+	public static function setErrorRegister($msg)
+	{
+		$_SESSION[User::ERROR_REGISTER] = $msg;
+	}
+
+	public static function getErrorRegister()
+	{
+		$msg = (isset($_SESSION[User::ERROR_REGISTER]) && $_SESSION[User::ERROR_REGISTER]) ? $_SESSION[User::ERROR_REGISTER] : '';
+		User::clearErrorRegister();
+		return $msg;
+	}
+
+	public static function clearErrorRegister()
+	{
+		$_SESSION[User::ERROR_REGISTER] = NULL;
+	}
+
+	public static function checkLoginExist($login)
+	{
+		$sql = new Sql();
+		$results = $sql->select("SELECT * FROM tb_users WHERE deslogin = :deslogin", [
+			':deslogin'=>$login
+		]);
+		return (count($results) > 0);
+	}
+
 }
 
 ?>
