@@ -119,9 +119,8 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <li><a href="/admin/users"><i class="fa fa-users"></i> <span>Usuarios</span></a></li>
         <li><a href="/admin/categories"><i class="fa fa-link"></i> <span>Categorias</span></a></li>
-        <li><a href="/admin/products"><i class="fa fa-users"></i> <span>Produtos</span></a></li>
-        <li><a href="/admin/orders"><i class="fa fa-users"></i> <span>Pedidos</span></a></li>
-        <li><a href="/admin/alterarSenha"><i class="fa fa-users"></i> <span>Alterar senha</span></a></li>
+        <li><a href="/admin/products"><i class="fa fa-link"></i> <span>Produtos</span></a></li>
+        <li><a href="/admin/orders"><i class="fa fa-shopping-cart"></i> <span>Pedidos</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

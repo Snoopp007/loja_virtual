@@ -3,6 +3,7 @@
 use \Loja\PageAdmin;
 use \Loja\Model\User;
 
+
 $app->get('/admin', function() {
     
 	User::verifyLogin();

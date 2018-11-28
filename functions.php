@@ -1,12 +1,19 @@
 <?php 
 
 use \Loja\Model\User;
+use \Loja\Model\Cart;
 
 function formatPrice($vlprice)
 {
 	if (!$vlprice > 0) $vlprice = 0;
 	return number_format($vlprice, 2, ",", ".");
 }
+
+function formatDate($date)
+{
+	return date('d/m/Y', strtotime($date));
+}
+
 
 function checkLogin($inadmin = true)
 {
@@ -19,10 +26,25 @@ function getUserName()
 	return $user->getdesperson();
 }
 
+function getCartNrQtd()
+{
+	$cart = Cart::getFromSession();
+	$totals = $cart->getProductsTotals();
+	return $totals['nrqtd'];
+}
+
+function getCartVlSubTotal()
+{
+	$cart = Cart::getFromSession();
+	$totals = $cart->getProductsTotals();
+	return formatPrice($totals['vlprice']);
+}
+
 function post($key)
 {
 	return str_replace("'", "", $_POST[$key]);
 }
+
 function get($key)
 {
 	return str_replace("'", "", $_GET[$key]);
